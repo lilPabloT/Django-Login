@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
+            {% else %}
+                <li><a href="{% url 'signin' %}">Iniciar Sesión</a></li>
+                <li><a href="{% url 'signup' %}">Registrarse</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
