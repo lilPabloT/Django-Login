@@ -11,7 +11,8 @@ def index( request ):
     return render( request, 'index.html')
 
 def home( request ):
-    return render( request, 'home.html')
+    username = request.user.username
+    return render( request, 'home.html',{'username':username})
 
 def signup( request ):
     if request.method == 'GET':
